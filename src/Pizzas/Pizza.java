@@ -38,7 +38,11 @@ public class Pizza {
             dots = dots + ".";
         }
 
-        return id + ". " + name + dots + price + ",-";
+        if(id<10) {
+            return " " + id + ". " + name + dots + price + ",-";
+        } else {
+            return id + ". " + name + dots + price + ",-";
+        }
     }
 
 }
