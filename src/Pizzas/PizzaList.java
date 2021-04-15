@@ -7,13 +7,15 @@ import java.util.Scanner;
 
 public class PizzaList {
 
+    private static ArrayList<Pizza> pizzaList = new ArrayList<>();
+
     public static void main(String[] args) throws FileNotFoundException {
 
         File pizzaListFile = new File("resources/pizza.csv"); //create a reference to the csv file
 
         Scanner fileScanner = new Scanner(pizzaListFile); // create a scanner with the pizza list file as input
 
-        ArrayList<Pizza> pizzaList = new ArrayList<>();
+        //ArrayList<Pizza> pizzaList = new ArrayList<>();
 
         //while there is something left to read, continue
         while (fileScanner.hasNext()) {
@@ -30,6 +32,7 @@ public class PizzaList {
 
             Pizza tempPizza = new Pizza(id, name, price); //create Pizza objects from these values.
 
+            //pizzaList.add(tempPizza); //Then add them to the arrayList
             pizzaList.add(tempPizza); //Then add them to the arrayList
         }
 
@@ -41,7 +44,10 @@ public class PizzaList {
             System.out.println(pizza);
         }
 
+    }
 
+    public ArrayList getPizzaList() {
+        return pizzaList;
     }
 
     public static int tryParse(String text) {
