@@ -1,8 +1,11 @@
 package Orders;
-
+import Pizzas.*;
 import java.util.ArrayList;
 
 public class Order {
+
+    Pizza pizza = new Pizza();
+    PizzaList pizzaList = new PizzaList();
 
     //Attributes
     private String nameOfCustomer;
@@ -18,5 +21,14 @@ public class Order {
         this.deliveryTime = deliveryTime;
 
     }
+
+    public Pizza pizzaLineItem (int id) {
+        String name = pizzaList.getName();
+        int price = pizzaList.pizzaList.getPrice();
+        return new Pizza(id, name, price);
+
+    }
+
+
 
 }
