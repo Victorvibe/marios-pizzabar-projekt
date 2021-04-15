@@ -1,7 +1,6 @@
 package Orders;
 import Pizzas.*;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Order {
@@ -9,14 +8,11 @@ public class Order {
     //Attributes
     private String nameOfCustomer;
     private ArrayList<Pizza> pizzaLineItemList = new ArrayList<>();
-    int totalPizzas;
-    int deliveryTime;
-    int totalPrice;
+    private int totalPizzas;
+    private int deliveryTime;
+    private int totalPrice;
 
-    public static void main(String[] args) throws FileNotFoundException {
-        PizzaList.createPizzaList();
-    }
-
+    //constructor with just name as input
     public Order(String nameOfCustomer) {
         this.nameOfCustomer = nameOfCustomer;
     }
@@ -29,8 +25,12 @@ public class Order {
         this.deliveryTime = deliveryTime;
     }
 
-    public ArrayList getPizzaLineItemList() {
+    public ArrayList<Pizza> getPizzaLineItemList() {
         return this.pizzaLineItemList;
+    }
+
+    public void setNameOfCustomer(String name) {
+        nameOfCustomer = name;
     }
 
     //get id and quantity from user input and use that to create copies of the relevant pizzas and add them to
@@ -43,10 +43,25 @@ public class Order {
         Pizza thisPizza = new Pizza(id, name, price);
 
         //create number of this pizza equal to quantity
-        for (int i=0; i<= quantity; i++) {
+        for (int i=1; i<= quantity; i++) {
             pizzaLineItemList.add(thisPizza);
+            totalPizzas++;
             totalPrice = totalPrice + thisPizza.getPrice();
         }
     }
 
+    public void printOrder() {
+        System.out.println("-------------");
+        System.out.println("Navn: " + nameOfCustomer);
+        printPizzaLineItemList();
+        System.out.println("Pris: " + totalPrice);
+        System.out.println("-------------");
+    }
+
+    //prints id and name of all pizzas in pizzaLineItemList (which is a list of the pizzas in this order)
+    public void printPizzaLineItemList() {
+        for(Pizza pizza : pizzaLineItemList) {
+            System.out.println(pizza.getID() + " " + pizza.getName());
+        }
+    }
 }
