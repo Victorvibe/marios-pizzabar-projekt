@@ -41,7 +41,6 @@ public class PizzaList {
             System.out.println(pizza);
         }
 
-
     }
 
     public static int tryParse(String text) {
