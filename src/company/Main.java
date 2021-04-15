@@ -14,5 +14,10 @@ public class Main {
 	    testOrder.pizzaLineItem(5,2);
         System.out.println(testOrder.getPizzaLineItemList());
         testOrder.printOrder();
+        OrderList testOrderList = new OrderList();
+        testOrderList.addToListOfOrders(testOrder);
+        testOrderList.calculateWaitTime();
+        System.out.println("Ventetid: " + testOrderList.getWaitTime() + " min");
+        System.out.println("Afhentning: " + testOrderList.calculateTimeToPickup());
     }
 }

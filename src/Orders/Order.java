@@ -9,7 +9,7 @@ public class Order {
     private String nameOfCustomer;
     private ArrayList<Pizza> pizzaLineItemList = new ArrayList<>();
     private int totalPizzas;
-    private int deliveryTime;
+    private int pickupTime;
     private int totalPrice;
 
     //constructor with just name as input
@@ -18,11 +18,11 @@ public class Order {
     }
 
     //Constructor
-    public Order(String nameOfCustomer, ArrayList<Pizza> pizzaLineItemList, int totalPizzas, int deliveryTime) {
+    public Order(String nameOfCustomer, ArrayList<Pizza> pizzaLineItemList, int totalPizzas, int pickupTime) {
         this.nameOfCustomer = nameOfCustomer;
         this.pizzaLineItemList = pizzaLineItemList;
         this.totalPizzas = totalPizzas;
-        this.deliveryTime = deliveryTime;
+        this.pickupTime = pickupTime;
     }
 
     public ArrayList<Pizza> getPizzaLineItemList() {
