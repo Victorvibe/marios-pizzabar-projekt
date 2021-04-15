@@ -1,34 +1,52 @@
 package Orders;
 import Pizzas.*;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Order {
 
-    Pizza pizza = new Pizza();
-    PizzaList pizzaList = new PizzaList();
-
     //Attributes
     private String nameOfCustomer;
-    private ArrayList<OrderLineItem> orderLineItems = new ArrayList<>();
+    private ArrayList<Pizza> pizzaLineItemList = new ArrayList<>();
     int totalPizzas;
     int deliveryTime;
+    int totalPrice;
+
+    public static void main(String[] args) throws FileNotFoundException {
+        PizzaList.createPizzaList();
+    }
+
+    public Order(String nameOfCustomer) {
+        this.nameOfCustomer = nameOfCustomer;
+    }
 
     //Constructor
-    public Order(String nameOfCustomer, ArrayList orderLineItems, int totalPizzas, int deliveryTime) {
+    public Order(String nameOfCustomer, ArrayList<Pizza> pizzaLineItemList, int totalPizzas, int deliveryTime) {
         this.nameOfCustomer = nameOfCustomer;
-        this.orderLineItems = orderLineItems;
+        this.pizzaLineItemList = pizzaLineItemList;
         this.totalPizzas = totalPizzas;
         this.deliveryTime = deliveryTime;
-
     }
 
-    public Pizza pizzaLineItem (int id) {
-        String name = pizzaList.getPizzaList().indexOf(id).
-        int price = pizzaList.pizzaList.getPrice();
-        return new Pizza(id, name, price);
-
+    public ArrayList getPizzaLineItemList() {
+        return this.pizzaLineItemList;
     }
 
+    //get id and quantity from user input and use that to create copies of the relevant pizzas and add them to
+    //pizzaLineItemList, which is this order's list of pizzas
+    public void pizzaLineItem (int id, int quantity) {
+        //get name and price from pizzaList and create a copy of that pizza to use in this order
+        String name = PizzaList.pizzaList.get(id-1).getName(); //subtract 1 to get the correct index
+        int price = PizzaList.pizzaList.get(id-1).getPrice();
 
+        Pizza thisPizza = new Pizza(id, name, price);
+
+        //create number of this pizza equal to quantity
+        for (int i=0; i<= quantity; i++) {
+            pizzaLineItemList.add(thisPizza);
+            totalPrice = totalPrice + thisPizza.getPrice();
+        }
+    }
 
 }

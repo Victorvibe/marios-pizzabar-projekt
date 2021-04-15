@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class PizzaList {
 
-    private static ArrayList<Pizza> pizzaList = new ArrayList<>();
+    public static ArrayList<Pizza> pizzaList = new ArrayList<>();
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void createPizzaList() throws FileNotFoundException {
 
         File pizzaListFile = new File("resources/pizza.csv"); //create a reference to the csv file
 
@@ -43,11 +43,16 @@ public class PizzaList {
         for (Pizza pizza : pizzaList) {
             System.out.println(pizza);
         }
-
     }
 
     public ArrayList getPizzaList() {
         return pizzaList;
+    }
+
+    public void printPizzaList() {
+        for (Pizza pizza : pizzaList) {
+            System.out.println(pizza);
+        }
     }
 
     public static int tryParse(String text) {
