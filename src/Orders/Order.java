@@ -23,7 +23,7 @@ public class Order {
     }
 
     public Pizza pizzaLineItem (int id) {
-        String name = pizzaList.getName();
+        String name = pizzaList.getPizzaList().indexOf(id).
         int price = pizzaList.pizzaList.getPrice();
         return new Pizza(id, name, price);
 
