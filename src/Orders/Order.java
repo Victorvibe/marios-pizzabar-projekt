@@ -11,6 +11,8 @@ public class Order {
     private int totalPizzas;
     private int pickupTime;
     private int totalPrice;
+    private String comment;
+    private int orderID;
 
     //constructor with just name as input
     public Order(String nameOfCustomer) {
@@ -35,7 +37,7 @@ public class Order {
 
     //get id and quantity from user input and use that to create copies of the relevant pizzas and add them to
     //pizzaLineItemList, which is this order's list of pizzas
-    public void pizzaLineItem (int id, int quantity) {
+    public void addPizzaToOrder(int id, int quantity) {
         //get name and price from pizzaList and create a copy of that pizza to use in this order
         String name = PizzaList.pizzaList.get(id-1).getName(); //subtract 1 to get the correct index
         int price = PizzaList.pizzaList.get(id-1).getPrice();
