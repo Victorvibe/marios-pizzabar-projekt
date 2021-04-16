@@ -8,7 +8,7 @@ public class OrderList {
 
     private int waitTime = 0; //
     private final int COOK_TIME = 10; //minutes to cook one pizza
-    private ArrayList<Order> listOfOrders = new ArrayList<>();
+    private static ArrayList<Order> listOfOrders = new ArrayList<>(); //static because we only want one to exist
 
     public int getWaitTime() {
         return waitTime;

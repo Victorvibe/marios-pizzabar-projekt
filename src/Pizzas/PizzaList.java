@@ -36,16 +36,12 @@ public class PizzaList {
             pizzaList.add(tempPizza); //Then add them to the arrayList
         }
 
-        //tests
-        //System.out.println("Number of pizzas: " + pizzaList.size());
-        //System.out.println("The pizza called " + pizzaList.get(0).getName() + " costs " + pizzaList.get(0).getPrice() + " kr.");
-        //test: printing out all pizzas in pizza list
         for (Pizza pizza : pizzaList) {
             System.out.println(pizza);
         }
     }
 
-    public ArrayList getPizzaList() {
+    public ArrayList<Pizza> getPizzaList() {
         return pizzaList;
     }
 
