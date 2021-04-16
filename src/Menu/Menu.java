@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Menu {
 
     Scanner scanner = new Scanner(System.in);
+    OrderList orderList = new OrderList();
+    LoginMenu loginMenu = new LoginMenu();
 
     public int getUserInput() {
         int userInput = scanner.nextInt();
@@ -44,10 +46,9 @@ public class Menu {
                     System.out.println("Enter password: ");
                     int enterPassword = scanner.nextInt();
                     if (enterPassword == 45678) {
-                        System.out.println("Welcome, here are your options: ");
-                        //Statistics class
-                        //Any other classes that should be accessible while enter the right password?
-                    } else if (enterPassword != 45678) {
+                        loginMenu.advancedLoginMenu();
+                    }
+                    else if (enterPassword != 45678) {
                         System.out.println("Error, wrong password!\n" + "You will be sent back to the menu");
                         System.out.println();
                         mainMenu(); //Try again
