@@ -1,5 +1,4 @@
 package Menu;
-import java.util.Scanner;
 
 public class MainMenu {
 
@@ -8,8 +7,6 @@ public class MainMenu {
 
         Menu menu = new Menu();
         menu.mainMenu();
-
-
 
             }
         }

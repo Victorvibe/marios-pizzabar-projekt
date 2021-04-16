@@ -15,7 +15,8 @@ public class Menu {
     }
 
     public void mainMenu() {
-        System.out.println("Welcome");
+        System.out.println();
+        System.out.println("Welcome!");
         System.out.println("Press 1 to create a order");
         System.out.println("Press 2 to check the orderlist");
         System.out.println("Press 3 to login");
@@ -25,6 +26,8 @@ public class Menu {
                 case 1:
                     System.out.println("You chose to create a order: ");
                     System.out.println();
+                    newOrder();
+                    //Controller to add the pizza to the arraylist etc.
                     mainMenu();
                     if (getUserInput() == 0) {
                         mainMenu();
@@ -41,6 +44,7 @@ public class Menu {
                     break;
 
                 case 3:
+                    System.out.println();
                     System.out.println("You chose to login");
                     int password = 45678;
                     System.out.println("Enter password: ");
@@ -58,6 +62,20 @@ public class Menu {
                 case 4:
                     break;
             }
+        }
+
+        public void newOrder() {
+        Scanner userInput = new Scanner(System.in);
+
+            System.out.println("Enter the customers name: ");
+            String name = userInput.nextLine();
+            System.out.println("Enter the pizza ID: ");
+            int pizzaID = userInput.nextInt();
+            System.out.println("Any comments to the order? etc: +/-: ");
+            String comment = userInput.nextLine();
+            System.out.println("What time do you want to pick up?: ");
+            double puTime = userInput.nextDouble();
+
         }
 
 
