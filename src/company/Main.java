@@ -19,5 +19,6 @@ public class Main {
         testOrderList.calculateWaitTime();
         System.out.println("Ventetid: " + testOrderList.getWaitTime() + " min");
         System.out.println("Afhentning: " + testOrderList.calculateTimeToPickup());
+        testOrderList.printListOfOrders();
     }
 }

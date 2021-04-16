@@ -7,7 +7,7 @@ public class Order {
 
     //Attributes
     private String nameOfCustomer;
-    private ArrayList<Pizza> pizzaLineItemList = new ArrayList<>();
+    private ArrayList<Pizza> pizzaLineItemList = new ArrayList<>(); //list of pizzas the order contains
     private int totalPizzas;
     private int pickupTime;
     private int totalPrice;
