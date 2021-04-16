@@ -1,15 +1,16 @@
 package Orders;
 import Pizzas.*;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Order {
 
     //Attributes
     private String nameOfCustomer;
-    private ArrayList<Pizza> pizzaLineItemList = new ArrayList<>(); //list of pizzas the order contains
+    private ArrayList<Pizza> pizzasInThisOrder = new ArrayList<>(); //list of pizzas the order contains
     private int totalPizzas;
-    private int pickupTime;
+    private LocalTime pickupTime;
     private int totalPrice;
     private String comment;
     private int orderID;
@@ -20,19 +21,23 @@ public class Order {
     }
 
     //Constructor
-    public Order(String nameOfCustomer, ArrayList<Pizza> pizzaLineItemList, int totalPizzas, int pickupTime) {
+    public Order(String nameOfCustomer, ArrayList<Pizza> pizzasInThisOrder, int totalPizzas, LocalTime pickupTime) {
         this.nameOfCustomer = nameOfCustomer;
-        this.pizzaLineItemList = pizzaLineItemList;
+        this.pizzasInThisOrder = pizzasInThisOrder;
         this.totalPizzas = totalPizzas;
         this.pickupTime = pickupTime;
     }
 
-    public ArrayList<Pizza> getPizzaLineItemList() {
-        return this.pizzaLineItemList;
+    public ArrayList<Pizza> getPizzasInThisOrder() {
+        return this.pizzasInThisOrder;
     }
 
     public void setNameOfCustomer(String name) {
         nameOfCustomer = name;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     //get id and quantity from user input and use that to create copies of the relevant pizzas and add them to
@@ -46,7 +51,7 @@ public class Order {
 
         //create number of this pizza equal to quantity
         for (int i=1; i<= quantity; i++) {
-            pizzaLineItemList.add(thisPizza);
+            pizzasInThisOrder.add(thisPizza);
             totalPizzas++;
             totalPrice = totalPrice + thisPizza.getPrice();
         }
@@ -62,7 +67,7 @@ public class Order {
 
     //prints id and name of all pizzas in pizzaLineItemList (which is a list of the pizzas in this order)
     public void printPizzaLineItemList() {
-        for(Pizza pizza : pizzaLineItemList) {
+        for(Pizza pizza : pizzasInThisOrder) {
             System.out.println(pizza.getID() + " " + pizza.getName());
         }
     }

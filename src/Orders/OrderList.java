@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class OrderList {
 
-    private int waitTime = 0; //
+    private static int waitTime = 0; //
     private final int COOK_TIME = 10; //minutes to cook one pizza
     private static ArrayList<Order> listOfOrders = new ArrayList<>(); //static because we only want one to exist
 
@@ -36,7 +36,7 @@ public class OrderList {
         for (Order order : listOfOrders) {
             //and then, in each order, check how large the getPizzaLineItemList() (which indicates the number of pizzas
             //in that order) and then add COOK_TIME to waitTime for each pizza
-            for (int i=0; i < order.getPizzaLineItemList().size(); i++) {
+            for (int i = 0; i < order.getPizzasInThisOrder().size(); i++) {
                 waitTime = waitTime + COOK_TIME;
             }
         }

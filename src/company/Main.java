@@ -12,7 +12,7 @@ public class Main {
         //test case
 	    Order testOrder = new Order("TestKunde");
 	    testOrder.addPizzaToOrder(5,2);
-        System.out.println(testOrder.getPizzaLineItemList());
+        System.out.println(testOrder.getPizzasInThisOrder());
         testOrder.printOrder();
         OrderList testOrderList = new OrderList();
         testOrderList.addToListOfOrders(testOrder);
