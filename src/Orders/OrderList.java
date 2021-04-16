@@ -18,6 +18,14 @@ public class OrderList {
         return listOfOrders;
     }
 
+    public void printListOfOrders() {
+        calculateWaitTime();
+        calculateTimeToPickup();
+        for (Order order : listOfOrders) {
+            order.printOrder();
+        }
+    }
+
     public void addToListOfOrders(Order thisOrder) {
         listOfOrders.add(thisOrder);
     }
