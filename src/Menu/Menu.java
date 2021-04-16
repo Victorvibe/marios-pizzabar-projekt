@@ -69,15 +69,15 @@ public class Menu {
 
             System.out.println("Enter the customers name: ");
             String name = userInput.nextLine();
+            //call controller to create order instance with name
             System.out.println("Enter the pizza ID: ");
             int pizzaID = userInput.nextInt();
+            //call controller to add pizza to order
             System.out.println("Any comments to the order? etc: +/-: ");
             String comment = userInput.nextLine();
             System.out.println("What time do you want to pick up?: ");
             double puTime = userInput.nextDouble();
 
         }
-
-
 
 }
