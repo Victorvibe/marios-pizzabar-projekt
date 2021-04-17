@@ -32,6 +32,10 @@ public class Order {
         return this.pizzasInThisOrder;
     }
 
+    public LocalTime getPickupTime() {
+        return this.pickupTime;
+    }
+
     public void setNameOfCustomer(String name) {
         nameOfCustomer = name;
     }

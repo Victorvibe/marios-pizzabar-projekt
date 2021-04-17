@@ -42,6 +42,15 @@ public class OrderList {
         }
     }
 
+    //not done, trying to sort. Maybe look at bubble sort
+    public void sortOrderByPickupTime() {
+        //go through list of orders...
+        for (int i=0; i< listOfOrders.size(); i++) {
+            listOfOrders.get(i).getPickupTime().isAfter(listOfOrders.get(i+1).getPickupTime());
+            }
+        }
+
+
     //call this to calculate when a pickup will be ready for pickup, based on the current waiting time
     public LocalTime calculateTimeToPickup() {
         LocalTime time = LocalTime.now();
