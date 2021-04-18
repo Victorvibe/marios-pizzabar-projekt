@@ -9,6 +9,7 @@ public class Statistics {
     public static ArrayList<Order> allOrders;
 
     public void amountSoldOfEachPizza() {
+        /*
         //for (typepåliste variabelnavn : listenavn)
         for (Order o : allOrders) {
             ArrayList<Pizza> a = o.getPizzaLineItemList();
@@ -18,6 +19,8 @@ public class Statistics {
              ) {
 
         }
+
+         */
     }
 
 

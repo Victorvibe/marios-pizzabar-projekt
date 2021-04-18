@@ -2,6 +2,7 @@ package Orders;
 import Pizzas.*;
 
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Order {
@@ -12,7 +13,7 @@ public class Order {
     private int totalPizzas;
     private LocalTime pickupTime;
     private int totalPrice;
-    private String comment;
+    private String comment = "Ingen kommentarer";
     private int orderID;
 
     //constructor with just name as input
@@ -21,9 +22,8 @@ public class Order {
     }
 
     //Constructor
-    public Order(String nameOfCustomer, ArrayList<Pizza> pizzasInThisOrder, int totalPizzas, LocalTime pickupTime) {
+    public Order(String nameOfCustomer, int totalPizzas, LocalTime pickupTime) {
         this.nameOfCustomer = nameOfCustomer;
-        this.pizzasInThisOrder = pizzasInThisOrder;
         this.totalPizzas = totalPizzas;
         this.pickupTime = pickupTime;
     }
@@ -34,6 +34,10 @@ public class Order {
 
     public LocalTime getPickupTime() {
         return this.pickupTime;
+    }
+
+    public void setPickupTime(LocalTime pickupTime) {
+        this.pickupTime = pickupTime;
     }
 
     public void setNameOfCustomer(String name) {
@@ -63,12 +67,12 @@ public class Order {
 
     public void printOrder() {
         System.out.println("-------------");
-        System.out.println("Navn: " + nameOfCustomer);
+        System.out.println("Kundenavn: " + nameOfCustomer);
         printPizzasInThisOrder();
         System.out.println(comment);
         System.out.println("Afhentning: " + pickupTime);
-        System.out.println("Pris: " + totalPrice);
-        System.out.println("-------------");
+        System.out.println("Pris: " + totalPrice + " kr.");
+        //System.out.println("-------------");
     }
 
     //prints id and name of all pizzas in pizzaLineItemList (which is a list of the pizzas in this order)
