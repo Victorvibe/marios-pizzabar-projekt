@@ -64,13 +64,15 @@ public class Order {
     public void printOrder() {
         System.out.println("-------------");
         System.out.println("Navn: " + nameOfCustomer);
-        printPizzaLineItemList();
+        printPizzasInThisOrder();
+        System.out.println(comment);
+        System.out.println("Afhentning: " + pickupTime);
         System.out.println("Pris: " + totalPrice);
         System.out.println("-------------");
     }
 
     //prints id and name of all pizzas in pizzaLineItemList (which is a list of the pizzas in this order)
-    public void printPizzaLineItemList() {
+    public void printPizzasInThisOrder() {
         for(Pizza pizza : pizzasInThisOrder) {
             System.out.println(pizza.getID() + " " + pizza.getName());
         }
