@@ -1,6 +1,9 @@
 package Menu;
+import Controller.Controller;
+import Orders.Order;
 import Orders.OrderList;
 
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Menu {
@@ -8,6 +11,7 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
     OrderList orderList = new OrderList();
     LoginMenu loginMenu = new LoginMenu();
+    Controller controller = new Controller();
 
     public int getUserInput() {
         int userInput = scanner.nextInt();
@@ -22,6 +26,7 @@ public class Menu {
         System.out.println("Press 3 to login");
         System.out.println("Press 4 to exit program");
 
+
             switch (getUserInput()) {
                 case 1:
                     System.out.println("You chose to create a order: ");
@@ -29,18 +34,13 @@ public class Menu {
                     newOrder();
                     //Controller to add the pizza to the arraylist etc.
                     mainMenu();
-                    if (getUserInput() == 0) {
-                        mainMenu();
-                    }
                     break;
 
                 case 2:
                     System.out.println("You chose to check the orderlist: ");
                     System.out.println();
+                    controller.checkOrderList();
                     mainMenu();
-                    if (getUserInput() == 0) {
-                        mainMenu();
-                    }
                     break;
 
                 case 3:
@@ -69,14 +69,40 @@ public class Menu {
 
             System.out.println("Enter the customers name: ");
             String name = userInput.nextLine();
-            //call controller to create order instance with name
+            Order newOrder = controller.createNewOrder(name);
+            newOrderAddPizza(newOrder);
+            /*
             System.out.println("Enter the pizza ID: ");
             int pizzaID = userInput.nextInt();
-            //call controller to add pizza to order
-            System.out.println("Any comments to the order? etc: +/-: ");
+            System.out.println("How many pizzas?");
+            int quantity = userInput.nextInt();
+            controller.addPizzaToOrder(newOrder, pizzaID, quantity);
+            //userInput.nextLine();
+             */
+            System.out.println("Any comments to the order? etc +/-: ");
             String comment = userInput.nextLine();
-            System.out.println("What time do you want to pick up?: ");
-            double puTime = userInput.nextDouble();
+            controller.addCommentToOrder(newOrder, comment);
+            System.out.print("This is the pick up time: ");
+            LocalTime pickUpTime = controller.getPickupTime(newOrder);
+            System.out.println(pickUpTime);
+
+        }
+
+        public void newOrderAddPizza(Order newOrder) {
+            Scanner userInput = new Scanner(System.in);
+
+            System.out.println("Enter pizza ID: ");
+            int pizzaID = userInput.nextInt();
+            System.out.println("How many of this pizza?");
+            int quantity = userInput.nextInt();
+            controller.addPizzaToOrder(newOrder, pizzaID, quantity);
+
+            System.out.println("Press 0 if there are no more pizzas to add");
+            System.out.println("Press 1 to add another pizza");
+            if(userInput.nextInt() == 0) {
+                return;
+            } else newOrderAddPizza(newOrder);
+
 
         }
 
