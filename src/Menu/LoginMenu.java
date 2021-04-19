@@ -1,11 +1,13 @@
 package Menu;
 
+import Controller.Controller;
 import Orders.Order;
 import java.util.Scanner;
 
 public class LoginMenu {
 
     Scanner loginSc = new Scanner(System.in);
+    Controller controller = new Controller();
 
     public int getLoginInput() {
         int loginInput = loginSc.nextInt();
@@ -22,6 +24,7 @@ public class LoginMenu {
             case 1:
                 System.out.println("You chose to see the statistics for the pizzas");
                 //Waiting for the statistic class, before i can write the functions
+                controller.getStatistics();
                 break;
 
 

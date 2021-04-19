@@ -4,6 +4,7 @@ import Menu.Menu;
 import Orders.Order;
 import Orders.OrderList;
 import Pizzas.Pizza;
+import Statistics.Statistics;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 public class Controller {
    //Case 2 i Menu
     OrderList orderList = new OrderList();
+    Statistics statistics = new Statistics();
+
     public void checkOrderList () {
         orderList.printListOfOrders();
     }
@@ -35,6 +38,10 @@ public class Controller {
         order.setPickupTime(time);
         orderList.addToListOfOrders(order);
         return order.getPickupTime();
+    }
+
+    public void getStatistics() {
+        statistics.amountSoldOfEachPizza();
     }
 
 }
