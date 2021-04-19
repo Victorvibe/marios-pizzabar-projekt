@@ -3,7 +3,7 @@ package Controller;
 import Menu.Menu;
 import Orders.Order;
 import Orders.OrderList;
-import Pizzas.Pizza;
+import Pizzas.PizzaList;
 import Statistics.Statistics;
 
 import java.time.LocalTime;
@@ -13,6 +13,7 @@ public class Controller {
    //Case 2 i Menu
     OrderList orderList = new OrderList();
     Statistics statistics = new Statistics();
+    PizzaList pizzaList = new PizzaList();
 
     public void checkOrderList () {
         orderList.printListOfOrders();
@@ -40,8 +41,17 @@ public class Controller {
         return order.getPickupTime();
     }
 
+    public void removeFromListOfOrders(String nameOfCustomer) {
+        orderList.removeFromListOfOrders(nameOfCustomer);
+    }
+
     public void getStatistics() {
         statistics.amountSoldOfEachPizza();
+    }
+
+
+    public void printPizzaList() {
+        pizzaList.printPizzaList();
     }
 
 }
