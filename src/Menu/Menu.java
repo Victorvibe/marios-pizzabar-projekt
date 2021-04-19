@@ -66,7 +66,11 @@ public class Menu {
                     break;
 
                 case 5:
-                    //controller.removeFromListOfOrders();
+                    controller.checkOrderList();
+                    System.out.println("Enter order ID of the order to delete");
+                    int orderNumberToDelete = scanner.nextInt();
+                    controller.removeFromListOfOrders(orderNumberToDelete);
+                    mainMenu();
                     break;
 
                 case 6:

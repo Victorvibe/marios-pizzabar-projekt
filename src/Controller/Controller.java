@@ -45,6 +45,10 @@ public class Controller {
         orderList.removeFromListOfOrders(nameOfCustomer);
     }
 
+    public void removeFromListOfOrders(int orderIDToDelete) {
+        orderList.removeFromListOfOrders(orderIDToDelete);
+    }
+
     public void getStatistics() {
         statistics.amountSoldOfEachPizza();
     }
