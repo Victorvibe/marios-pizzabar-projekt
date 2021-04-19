@@ -32,15 +32,23 @@ public class OrderList {
 
     //remove by ID
     public void removeFromListOfOrders(int orderIDToRemove) {
+
+        Order tempOrder = new Order("temp");
+
         for(Order order : listOfOrders) {
             if(order.getOrderID() == orderIDToRemove) {
-                listOfOrders.remove(order);
-                System.out.println("Removed order # )" + orderIDToRemove);
+                tempOrder = order; //if order with this orderID is on the orderList, set tempOrder to this order
+                //listOfOrders.remove(order);
+                //System.out.println("Removed order #" + orderIDToRemove);
             }
         }
+        listOfOrders.remove(tempOrder); //delete tempOrder which is now the order with the orderID from the parameter
+        System.out.println("Removed order #" + orderIDToRemove);
+
     }
 
     //remove by customer name
+    //warning: this will likely throw an exception
     public void removeFromListOfOrders(String nameOfCustomer) {
         for(Order order : listOfOrders) {
             if(order.getNameOfCustomer().equals(nameOfCustomer)) {
