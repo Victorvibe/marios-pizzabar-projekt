@@ -30,6 +30,17 @@ public class OrderList {
         listOfOrders.add(thisOrder);
     }
 
+    //remove by ID
+    public void removeFromListOfOrders(int orderIDToRemove) {
+        for(Order order : listOfOrders) {
+            if(order.getOrderID() == orderIDToRemove) {
+                listOfOrders.remove(order);
+                System.out.println("Removed order # )" + orderIDToRemove);
+            }
+        }
+    }
+
+    //remove by customer name
     public void removeFromListOfOrders(String nameOfCustomer) {
         for(Order order : listOfOrders) {
             if(order.getNameOfCustomer().equals(nameOfCustomer)) {
