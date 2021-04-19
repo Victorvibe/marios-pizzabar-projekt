@@ -15,10 +15,13 @@ public class Order {
     private int totalPrice;
     private String comment = "Ingen kommentarer";
     private int orderID;
+    private static int orderCounter = 0;
 
     //constructor with just name as input
     public Order(String nameOfCustomer) {
         this.nameOfCustomer = nameOfCustomer;
+        this.orderID = orderCounter;
+        orderCounter++;
     }
 
     //Constructor
@@ -34,6 +37,10 @@ public class Order {
 
     public LocalTime getPickupTime() {
         return this.pickupTime;
+    }
+
+    public int getOrderID() {
+        return this.orderID;
     }
 
     public void setPickupTime(LocalTime pickupTime) {
@@ -71,6 +78,7 @@ public class Order {
 
     public void printOrder() {
         System.out.println("-------------");
+        System.out.println("Ordrenummer: " + orderID);
         System.out.println("Kundenavn: " + nameOfCustomer);
         printPizzasInThisOrder();
         System.out.println(comment);
