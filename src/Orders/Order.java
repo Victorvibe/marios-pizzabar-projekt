@@ -15,7 +15,7 @@ public class Order {
     private int totalPrice;
     private String comment = "Ingen kommentarer";
     private int orderID;
-    private static int orderCounter = 0;
+    private static int orderCounter = 1;
 
     //constructor with just name as input
     public Order(String nameOfCustomer) {
