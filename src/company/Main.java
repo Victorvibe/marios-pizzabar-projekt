@@ -1,4 +1,5 @@
 package company;
+import Menu.Menu;
 import Orders.*;
 import Pizzas.PizzaList;
 
@@ -25,8 +26,12 @@ public class Main {
         testOrderList.printListOfOrders();
          */
         OrderList testOrderList = new OrderList();
-        generateRandomOrders(10);
+        generateRandomOrders(5);
         testOrderList.printListOfOrders();
+
+        //start the main menu
+        Menu menu = new Menu();
+        menu.mainMenu();
 
     }
 

@@ -1,9 +1,11 @@
 package Controller;
 
 import Menu.Menu;
+import Orders.Order;
 import Orders.OrderList;
 import Pizzas.Pizza;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Controller {
@@ -13,9 +15,26 @@ public class Controller {
         orderList.printListOfOrders();
     }
 
-
     //Case 1 i Menu
-    public void createOrder (String nameOfCustomer, ArrayList<Pizza> pizzaLineItemList, int totalPizzas, int pickupTime, int totalPrice) {
-
+    public Order createNewOrder (String nameOfCustomer) {
+        Order newOrder = new Order(nameOfCustomer);
+        return newOrder;
     }
+
+    public void addPizzaToOrder(Order order, int id, int quantity){
+        order.addPizzaToOrder(id, quantity);
+    }
+
+    public void addCommentToOrder(Order order, String comment) {
+        order.setComment(comment);
+    }
+
+    public LocalTime getPickupTime(Order order) {
+        orderList.calculateWaitTime();
+        LocalTime time = orderList.calculateTimeToPickup();
+        order.setPickupTime(time);
+        orderList.addToListOfOrders(order);
+        return order.getPickupTime();
+    }
+
 }
