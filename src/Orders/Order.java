@@ -40,8 +40,12 @@ public class Order {
         this.pickupTime = pickupTime;
     }
 
+    public String getNameOfCustomer() {
+        return this.nameOfCustomer;
+    }
+
     public void setNameOfCustomer(String name) {
-        nameOfCustomer = name;
+        this.nameOfCustomer = name;
     }
 
     public void setComment(String comment) {

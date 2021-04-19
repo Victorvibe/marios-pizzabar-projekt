@@ -30,6 +30,15 @@ public class OrderList {
         listOfOrders.add(thisOrder);
     }
 
+    public void removeFromListOfOrders(String nameOfCustomer) {
+        for(Order order : listOfOrders) {
+            if(order.getNameOfCustomer().equals(nameOfCustomer)) {
+                listOfOrders.remove(order);
+                System.out.println("Removed order of customer: " + nameOfCustomer);
+            }
+        }
+    }
+
     //call to calculate waiting time (in minutes) based on how many pizzas are currently waiting to be made
     public void calculateWaitTime() {
         //go through list of orders...
