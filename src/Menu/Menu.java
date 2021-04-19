@@ -62,11 +62,11 @@ public class Menu {
                     break;
 
                 case 4:
-                    //controller.printPizzaList;
+                    controller.printPizzaList();
                     break;
 
                 case 5:
-                    //Controller skal kalde på metode hvor man kan complete en order
+                    //controller.removeFromListOfOrders();
                     break;
 
                 case 6:
@@ -79,7 +79,7 @@ public class Menu {
         public void newOrder() {
         Scanner userInput = new Scanner(System.in);
 
-            //controller.printPizzaList;
+            controller.printPizzaList();
             System.out.println("Enter the customers name: ");
             String name = userInput.nextLine();
             Order newOrder = controller.createNewOrder(name);
