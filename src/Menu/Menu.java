@@ -63,6 +63,7 @@ public class Menu {
 
                 case 4:
                     controller.printPizzaList();
+                    mainMenu();
                     break;
 
                 case 5:
