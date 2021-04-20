@@ -24,7 +24,7 @@ public class Order {
         orderCounter++;
     }
 
-    //Constructor
+    //Constructor. Never used though
     public Order(String nameOfCustomer, int totalPizzas, LocalTime pickupTime) {
         this.nameOfCustomer = nameOfCustomer;
         this.totalPizzas = totalPizzas;
@@ -76,6 +76,7 @@ public class Order {
         }
     }
 
+    //call this to print an order
     public void printOrder() {
         System.out.println("-------------");
         System.out.println("Ordrenummer: " + orderID);
@@ -84,7 +85,6 @@ public class Order {
         System.out.println(comment);
         System.out.println("Afhentning: " + pickupTime);
         System.out.println("Pris: " + totalPrice + " kr.");
-        //System.out.println("-------------");
     }
 
     //prints id and name of all pizzas in pizzaLineItemList (which is a list of the pizzas in this order)

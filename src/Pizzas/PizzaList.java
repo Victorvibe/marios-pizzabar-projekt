@@ -15,13 +15,10 @@ public class PizzaList {
 
         Scanner fileScanner = new Scanner(pizzaListFile); // create a scanner with the pizza list file as input
 
-        //ArrayList<Pizza> pizzaList = new ArrayList<>();
-
         //while there is something left to read, continue
         while (fileScanner.hasNext()) {
 
             String currentString = fileScanner.nextLine(); // a string that holds the current String. We read the file line by line.
-            //System.out.println(currentString); // print the current string (currentString) this is a test
 
             String[] lineAsArray = currentString.split(","); //split currentString using "," as separator indicator
 
@@ -32,7 +29,6 @@ public class PizzaList {
 
             Pizza tempPizza = new Pizza(id, name, price); //create Pizza objects from these values.
 
-            //pizzaList.add(tempPizza); //Then add them to the arrayList
             pizzaList.add(tempPizza); //Then add them to the arrayList
         }
 
@@ -47,6 +43,7 @@ public class PizzaList {
         return pizzaList;
     }
 
+    //prints the ID, name and price of all the pizzas for sale, like a menu
     public void printPizzaList() {
         for (Pizza pizza : pizzaList) {
             System.out.println(pizza);

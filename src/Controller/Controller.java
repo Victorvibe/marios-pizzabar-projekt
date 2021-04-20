@@ -41,10 +41,12 @@ public class Controller {
         return order.getPickupTime();
     }
 
+    //remove with name. Not used
     public void removeFromListOfOrders(String nameOfCustomer) {
         orderList.removeFromListOfOrders(nameOfCustomer);
     }
 
+    //remove with order ID
     public void removeFromListOfOrders(int orderIDToDelete) {
         orderList.removeFromListOfOrders(orderIDToDelete);
     }
